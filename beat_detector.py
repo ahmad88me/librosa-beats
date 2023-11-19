@@ -35,6 +35,8 @@ def detect_beats(file_path):
     y, sr = librosa.load(file_path, duration=10)
     tempo, beats = librosa.beat.beat_track(y=y, sr=sr)
     print(f"Beats: {beats}")
+    time_stamps = librosa.frames_to_time(beats, sr=sr)
+    print(f"Time Stamps: {time_stamps}")
 
 
 if len(sys.argv) == 2:
